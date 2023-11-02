@@ -36,7 +36,7 @@ MANIFEST_DIR="";
 MIN_MANIFEST="https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git";
 
 # functions to set up things for each supported manifest branch
-do_fox_121() {
+do_fox_130() {
 	BASE_VER=13;
 	FOX_BRANCH="fox_13.0";
 	FOX_DEF_BRANCH="fox_13.0";

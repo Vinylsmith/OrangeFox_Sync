@@ -37,6 +37,16 @@ MIN_MANIFEST="https://github.com/minimal-manifest-twrp/platform_manifest_twrp_ao
 
 # functions to set up things for each supported manifest branch
 do_fox_121() {
+	BASE_VER=13;
+	FOX_BRANCH="fox_13.0";
+	FOX_DEF_BRANCH="fox_13.0";
+	TWRP_BRANCH="twrp-13";
+	DEVICE_BRANCH="android-13";
+	test_build_device="miatoll"; # the device whose tree we can clone for compiling a test build
+	[ -z "$MANIFEST_DIR" ] && MANIFEST_DIR="$BASE_DIR/$FOX_DEF_BRANCH";
+}
+
+do_fox_121() {
 	BASE_VER=12;
 	FOX_BRANCH="fox_12.1";
 	FOX_DEF_BRANCH="fox_12.1";
@@ -67,9 +77,12 @@ help_screen() {
   echo "    -p, -P, --path <absolute_path>	sync the minimal manifest into the directory '<absolute_path>'";
   echo "    -b, -B, --branch <branch>		get the minimal manifest for '<branch>'";
   echo "    	'<branch>' must be one of the following branches:";
+  echo "    		13.0";
   echo "    		12.1";
   echo "    		11.0";
   echo "Examples:";
+  echo "    $0 --branch 13.0 --path ~/OrangeFox_13.0";
+  echo "    $0 --branch 13.0 --path ~/OrangeFox/13.0 --debug";
   echo "    $0 --branch 12.1 --path ~/OrangeFox_12.1";
   echo "    $0 --branch 12.1 --path ~/OrangeFox/12.1 --debug";
   echo "    $0 --branch 11.0 --path ~/OrangeFox_11.0";
